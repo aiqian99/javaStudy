@@ -1,4 +1,4 @@
-package thread.deadlock;
+package intermediate.thread.deadlock;
 
 /**
  * @Description

@@ -17,30 +17,30 @@ public class ItemCF {
         // 测试数据
         Map<String, Map<String, Integer>> trainData = new HashMap<String, Map<String, Integer>>(8) {{
             put("A", new HashMap<String, Integer>(8) {{
-                put("i1", 1);
-                put("i2", 1);
-                put("i4", 1);
+                put("i1", 5);
+                put("i2", 5);
+                put("i4", 5);
             }});
             put("B", new HashMap<String, Integer>() {{
-                put("i1", 1);
-                put("i4", 1);
+                put("i1", 5);
+                put("i4", 5);
             }});
             put("C", new HashMap<String, Integer>() {{
-                put("i1", 1);
-                put("i2", 1);
-                put("i5", 1);
+                put("i1", 5);
+                put("i2", 5);
+                put("i5", 5);
             }});
             put("D", new HashMap<String, Integer>() {{
-                put("i2", 1);
-                put("i3", 1);
+                put("i2", 5);
+                put("i3", 5);
             }});
             put("E", new HashMap<String, Integer>() {{
-                put("i3", 1);
-                put("i5", 1);
+                put("i3", 5);
+                put("i5", 5);
             }});
             put("F", new HashMap<String, Integer>() {{
-                put("i2", 1);
-                put("i4", 1);
+                put("i2", 5);
+                put("i4", 5);
             }});
         }};
 
@@ -51,7 +51,7 @@ public class ItemCF {
             System.out.println(key + "：" + value);
         });
         String userId = "C";
-        int K = 4;
+        int K = 3;
         Map<String, Double> rank = recommend(trainData, userId, W, K);
         System.out.println("待推荐物品:");
         rank.forEach((key, value) -> {
@@ -227,11 +227,11 @@ public class ItemCF {
                     break;
                 }
                 count++;
-                if (!rank.containsKey(key2)) {
-                    rank.put(key2, Double.valueOf(0));
-                }
                 if (ru.containsKey(key2)) {
                     continue;
+                }
+                if (!rank.containsKey(key2)) {
+                    rank.put(key2, Double.valueOf(0));
                 }
                 rank.put(key2, rank.get(key2) + tmp.get(key2) * value);
             }

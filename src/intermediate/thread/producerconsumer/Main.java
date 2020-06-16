@@ -1,6 +1,4 @@
-package thread.producerconsumer;
-
-import java.util.Currency;
+package intermediate.thread.producerconsumer;
 
 /**
  * @Description 生产者 - 消费者

@@ -1,4 +1,4 @@
-package thread.ticket;
+package intermediate.thread.ticket;
 
 /**
  * @Description 三个窗口 模拟卖票

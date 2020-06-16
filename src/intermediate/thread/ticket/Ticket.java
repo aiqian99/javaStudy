@@ -1,6 +1,5 @@
-package thread.ticket;
+package intermediate.thread.ticket;
 
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**

@@ -1,0 +1,2 @@
+class=advanced.reflection.Service2
+method=doService2

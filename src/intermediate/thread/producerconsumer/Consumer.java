@@ -1,22 +1,21 @@
-package thread.producerconsumer;
-
-import com.sun.xml.internal.bind.v2.model.annotation.RuntimeAnnotationReader;
+package intermediate.thread.producerconsumer;
 
 /**
- * @Description 生产者
+ * @Description 消费者
  * @Author huangjw
  * @Date 2020/2/7 15:44
  */
-public class Producer implements Runnable {
+public class Consumer implements Runnable{
 
     private Article article;
 
-    public Producer(Article article) {
+    public Consumer(Article article) {
         this.article = article;
     }
 
-    // 1. 判断是否有物品 有则等待 没有则生产
-    // 2. 生产物品后 记录物品已有  唤醒消费者开始消费物品
+    //1. 消费品判断是否有物品
+    //2. 没有则等待
+    //3. 有则开始消费  记录物品已无 通知生产者生产 同时物品总数减一
     @Override
     public void run() {
         while (true) {
@@ -25,15 +24,16 @@ public class Producer implements Runnable {
                     break;
                 } else {
                     if (article.getFlag()) {
+                        System.out.println("消费者开始消费...");
+                        article.setFlag(false);
+                        article.getLock().notifyAll();
+                        article.setCount(article.getCount() - 1);
+                    } else {
                         try {
                             article.getLock().wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                    } else {
-                        System.out.println("生产者开始生产...");
-                        article.setFlag(true);
-                        article.getLock().notifyAll();
                     }
                 }
             }

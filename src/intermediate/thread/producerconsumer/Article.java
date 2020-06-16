@@ -1,4 +1,4 @@
-package thread.producerconsumer;
+package intermediate.thread.producerconsumer;
 
 /**
  * @Description 物品

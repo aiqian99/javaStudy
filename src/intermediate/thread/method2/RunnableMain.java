@@ -1,4 +1,4 @@
-package thread.method2;
+package intermediate.thread.method2;
 
 /**
  * @Description
