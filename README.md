@@ -1,11 +1,12 @@
 项目知识点
->src  
->>pattern -- 23种设计模式  
+>src   
 
->>advanced  
+>>advanced -- Java高级基础知识
 >>>reflection -- 反射    
 
 >>algorithm -- 算法
 
->>intermediate  
+>>intermediate -- Java中级基础知识
 >>>thread -- 线程
+
+>>pattern -- 23种设计模式 
