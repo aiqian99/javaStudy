@@ -1,9 +1,5 @@
 package algorithm;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -13,28 +9,21 @@ import java.util.Random;
 public class Sort {
 
     public static void main(String[] args) {
-        int[] arr = new int[50];
+        int[] arr = new int[20];
         Random random = new Random(27);
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(1000);
-            System.out.print(arr[i] + ", ");
         }
-        System.out.println();
-        long start = System.currentTimeMillis();
-        arr = insertionSort(arr);
-        long end = System.currentTimeMillis();
-        System.out.println("time is :" + (end - start));
+        quickSort(arr, 0, arr.length - 1);
         for (int i : arr) {
             System.out.print(i + ", ");
         }
     }
 
     /**
-     * @param arr 1
-     * @description: 选择排序  N²/2次比较、N次交换
-     * 在未排序数组段中找到最小的数字放在已排序数组段的最后面
+     * @Description: 选择排序   O(n²)   O(1)    不稳定
+     * 将未排序数组段中的最小数字 与 已排序数组段的下一位数字交换位置
      * 运行时间和输入无关、数据移动是最少的
-     * @return: int[]
      */
     public static int[] selectionSort(int[] arr) {
         int len = arr.length;
@@ -56,10 +45,8 @@ public class Sort {
     }
 
     /**
-     * @param arr 1
-     * @description: 插入排序 平均N²/4次比较和N²/4次交换，最坏N²/2次比较和N²/2次交换，最好N-1次比较和0次交换
+     * @Description: 插入排序   O(n²)   O(1)    稳定
      * 依次取出未排序序列数据，在已排序序列中从后向前扫描，比较大小找到相应位置并插入
-     * @return: int[]
      */
     public static int[] insertionSort(int[] arr) {
         int len = arr.length;
@@ -75,10 +62,8 @@ public class Sort {
     }
 
     /**
-     * @param arr 1
-     * @description: 冒泡排序
+     * @Description: 冒泡排序   O(n²)   O(1)    稳定
      * 重复地遍历要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来
-     * @return: int[]
      */
     public static int[] bubbleSort(int[] arr) {
         int len = arr.length;
@@ -95,16 +80,16 @@ public class Sort {
     }
 
     /**
-     * @param arr 1
-     * @description: 希尔排序
-     * 希尔排序是把记录按下表的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。
-     * @return: int[]
+     * @Description: 希尔排序   O(n log n)   O(1)    不稳定
+     * 希尔排序是把记录按下表的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，
+     * 当增量减至1时，整个文件恰被分成一组，算法便终止。
      */
     public static int[] shellSort(int[] arr) {
         int len = arr.length;
         int h = 1;
+        int N = 3;
         // 计算递增序列初始值
-        while (h < len / 3) {
+        while (h < len / N) {
             h = 3 * h + 1;
         }
         while (h >= 1) {
@@ -120,6 +105,46 @@ public class Sort {
             h = h / 3;
         }
         return arr;
+    }
+
+    /**
+     * @Description: 快速排序   O(n log n)   O(n log n)    不稳定
+     * 通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，
+     * 则可分别对这两部分记录继续进行排序，以达到整个序列有序。
+     */
+    public static int[] quickSort(int[] arr, int start, int end) {
+        if (start < 0 || end >= arr.length || start > end) {
+            return null;
+        }
+        int smallIndex = partition(arr, start, end);
+        if (smallIndex > start) {
+            quickSort(arr, start, smallIndex - 1);
+        }
+        if (smallIndex < end) {
+            quickSort(arr, smallIndex + 1, end);
+        }
+        return arr;
+    }
+
+    private static int partition(int[] arr, int start, int end) {
+        int pivot = (int) (Math.random() * (end - start + 1) + start);
+        swap(arr, pivot, end);
+        int smallIndex = start - 1;
+        for (int i = start; i <= end; i++) {
+            if (arr[i] <= arr[end]) {
+                smallIndex++;
+                if (i > smallIndex) {
+                    swap(arr, i, smallIndex);
+                }
+            }
+        }
+        return smallIndex;
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        int swap = arr[i];
+        arr[i] = arr[j];
+        arr[j] = swap;
     }
 
 }
