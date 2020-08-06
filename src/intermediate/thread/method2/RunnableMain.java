@@ -2,8 +2,7 @@ package intermediate.thread.method2;
 
 /**
  * @Description
- * @Author huangjw
- * @Date 2020/2/7 11:08
+ * @Author snail
  */
 public class RunnableMain {
     public static void main(String[] args) {

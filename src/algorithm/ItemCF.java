@@ -8,8 +8,7 @@ import java.util.stream.Collectors;
 
 /**
  * @Description 基于物品的协同过滤算法
- * @Author huangjw
- * @Date 2020/5/9 10:13
+ * @Author snail
  */
 public class ItemCF {
 

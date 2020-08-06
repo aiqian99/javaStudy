@@ -2,8 +2,7 @@ package intermediate.thread.producerconsumer;
 
 /**
  * @Description 生产者 - 消费者
- * @Author huangjw
- * @Date 2020/2/7 15:45
+ * @Author snail
  */
 public class Main {
     public static void main(String[] args) {

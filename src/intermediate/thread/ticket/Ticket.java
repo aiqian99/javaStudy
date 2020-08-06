@@ -4,8 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Description 多线程卖票实例  卖票延迟100ms
- * @Author huangjw
- * @Date 2020/2/6 14:18
+ * @Author snail
  */
 public class Ticket implements Runnable {
     private int ticketCount = 50;

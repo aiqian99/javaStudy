@@ -6,8 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Description 匿名类的方式 创建多线程
- * @Author huangjw
- * @Date 2020/2/7 11:15
+ * @Author snail
  */
 public class AnonymousMain {
     public static void main(String[] args) {

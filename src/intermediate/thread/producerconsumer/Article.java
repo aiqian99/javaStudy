@@ -2,8 +2,7 @@ package intermediate.thread.producerconsumer;
 
 /**
  * @Description 物品
- * @Author huangjw
- * @Date 2020/2/7 15:45
+ * @Author snail
  */
 public class Article {
 

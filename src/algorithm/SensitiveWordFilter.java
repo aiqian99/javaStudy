@@ -6,8 +6,7 @@ import java.util.Map;
 
 /**
  * @Description DFA算法实现敏感词过滤
- * @Author huangjw
- * @Date 2020/5/12 11:22
+ * @Author snail
  */
 public class SensitiveWordFilter {
 

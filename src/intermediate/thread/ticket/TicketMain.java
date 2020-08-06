@@ -2,8 +2,7 @@ package intermediate.thread.ticket;
 
 /**
  * @Description 三个窗口 模拟卖票
- * @Author huangjw
- * @Date 2020/2/6 14:21
+ * @Author snail
  */
 public class TicketMain {
     public static void main(String[] args) {

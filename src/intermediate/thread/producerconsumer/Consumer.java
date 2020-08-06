@@ -2,8 +2,7 @@ package intermediate.thread.producerconsumer;
 
 /**
  * @Description 消费者
- * @Author huangjw
- * @Date 2020/2/7 15:44
+ * @Author snail
  */
 public class Consumer implements Runnable{
 

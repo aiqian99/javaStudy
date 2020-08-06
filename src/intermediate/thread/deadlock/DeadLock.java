@@ -2,8 +2,7 @@ package intermediate.thread.deadlock;
 
 /**
  * @Description
- * @Author huangjw
- * @Date 2020/2/7 15:05
+ * @Author snail
  */
 public class DeadLock {
     public static void main(String[] args) {

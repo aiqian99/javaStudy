@@ -2,8 +2,7 @@ package advanced.reflection;
 
 /**
  * @Description
- * @Author huangjw
- * @Date 2020/6/16 16:33
+ * @Author snail
  */
 public class Service1 {
 

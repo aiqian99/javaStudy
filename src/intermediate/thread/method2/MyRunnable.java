@@ -2,8 +2,7 @@ package intermediate.thread.method2;
 
 /**
  * @Description 实现Runnable接口的方式 创建多线程
- * @Author huangjw
- * @Date 2020/2/7 11:07
+ * @Author snail
  */
 public class MyRunnable implements Runnable {
     @Override

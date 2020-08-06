@@ -8,8 +8,7 @@ import java.util.Random;
 
 /**
  * @Description 排序算法
- * @Author huangjw
- * @Date 2020/6/28 16:28
+ * @Author snail
  */
 public class Sort {
 

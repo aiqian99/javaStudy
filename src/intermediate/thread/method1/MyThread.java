@@ -3,8 +3,7 @@ package intermediate.thread.method1;
 
 /**
  * @Description 继承Thread的方式 创建多线程
- * @Author huangjw
- * @Date 2020/2/7 10:37
+ * @Author snail
  */
 public class MyThread extends Thread {
 
