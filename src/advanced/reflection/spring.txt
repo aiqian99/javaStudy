@@ -1,2 +1,2 @@
-class=advanced.reflection.Service2
-method=doService2
+class=advanced.reflection.Service1
+method=doService1

@@ -8,14 +8,13 @@ import java.util.Properties;
 
 /**
  * @Description 反射的实际使用   Spring框架的最基本的原理
- * @Author huangjw
- * @Date 2020/6/16 16:33
+ * @Author snail
  */
-public class Test {
+public class Reflection {
 
     public static void main(String[] args) throws Exception {
         //从spring.txt中获取类名称和方法名称
-        File springConfigFile = new File("D:\\Study\\javaStudy\\src\\advanced\\reflection\\spring.txt");
+        File springConfigFile = new File(System.getProperty("user.dir") + "\\src\\advanced\\reflection\\spring.txt");
         Properties springConfig = new Properties();
         springConfig.load(new FileInputStream(springConfigFile));
         String className = (String) springConfig.get("class");
