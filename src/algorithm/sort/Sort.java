@@ -1,5 +1,6 @@
-package algorithm;
+package algorithm.sort;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -12,9 +13,9 @@ public class Sort {
         int[] arr = new int[20];
         Random random = new Random(27);
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(1000);
+            arr[i] = random.nextInt(500);
         }
-        quickSort(arr, 0, arr.length - 1);
+        arr = mergeSort(arr);
         for (int i : arr) {
             System.out.print(i + ", ");
         }
@@ -25,7 +26,7 @@ public class Sort {
      * 将未排序数组段中的最小数字 与 已排序数组段的下一位数字交换位置
      * 运行时间和输入无关、数据移动是最少的
      */
-    public static int[] selectionSort(int[] arr) {
+    public static void selectionSort(int[] arr) {
         int len = arr.length;
         for (int i = 0; i < len; i++) {
             // 最小元素的索引
@@ -41,14 +42,13 @@ public class Sort {
             arr[i] = arr[min];
             arr[min] = swap;
         }
-        return arr;
     }
 
     /**
      * @Description: 插入排序   O(n²)   O(1)    稳定
      * 依次取出未排序序列数据，在已排序序列中从后向前扫描，比较大小找到相应位置并插入
      */
-    public static int[] insertionSort(int[] arr) {
+    public static void insertionSort(int[] arr) {
         int len = arr.length;
         for (int i = 1; i < len; i++) {
             // 将arr[i] 插入到 arr[i-1], arr[i-2], arr[i-3]...之中
@@ -58,14 +58,13 @@ public class Sort {
                 arr[j - 1] = swap;
             }
         }
-        return arr;
     }
 
     /**
      * @Description: 冒泡排序   O(n²)   O(1)    稳定
      * 重复地遍历要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来
      */
-    public static int[] bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         int len = arr.length;
         for (int i = 0; i < len; i++) {
             for (int j = 0; j < len - 1 - i; j++) {
@@ -76,7 +75,6 @@ public class Sort {
                 }
             }
         }
-        return arr;
     }
 
     /**
@@ -84,7 +82,7 @@ public class Sort {
      * 希尔排序是把记录按下表的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，
      * 当增量减至1时，整个文件恰被分成一组，算法便终止。
      */
-    public static int[] shellSort(int[] arr) {
+    public static void shellSort(int[] arr) {
         int len = arr.length;
         int h = 1;
         int N = 3;
@@ -104,6 +102,34 @@ public class Sort {
             }
             h = h / 3;
         }
+    }
+
+    /**
+     * 归并排序     O(n log n)   O(n)    稳定
+     */
+    public static int[] mergeSort(int[] arr) {
+        if (arr.length < 2) {
+            return arr;
+        }
+        int mid = arr.length / 2;
+        int[] left = Arrays.copyOfRange(arr, 0, mid);
+        int[] right = Arrays.copyOfRange(arr, mid, arr.length);
+        return merge(mergeSort(left), mergeSort(right));
+    }
+
+    private static int[] merge(int[] left, int[] right) {
+        int[] arr = new int[left.length + right.length];
+        for (int index = 0, i = 0, j = 0; index < arr.length; index++) {
+            if (i >= left.length) {
+                arr[index] = right[j++];
+            } else if (j >= right.length) {
+                arr[index] = left[i++];
+            } else if (left[i] < right[j]) {
+                arr[index] = left[i++];
+            } else {
+                arr[index] = right[j++];
+            }
+        }
         return arr;
     }
 
@@ -112,39 +138,36 @@ public class Sort {
      * 通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，
      * 则可分别对这两部分记录继续进行排序，以达到整个序列有序。
      */
-    public static int[] quickSort(int[] arr, int start, int end) {
-        if (start < 0 || end >= arr.length || start > end) {
-            return null;
+    public static void quickSort(int[] arr, int start, int end) {
+        if (start >= 0 && end <= arr.length && start < end) {
+            int pivotIndex = partition(arr, start, end);
+            quickSort(arr, start, pivotIndex - 1);
+            quickSort(arr, pivotIndex + 1, end);
         }
-        int smallIndex = partition(arr, start, end);
-        if (smallIndex > start) {
-            quickSort(arr, start, smallIndex - 1);
-        }
-        if (smallIndex < end) {
-            quickSort(arr, smallIndex + 1, end);
-        }
-        return arr;
     }
 
     private static int partition(int[] arr, int start, int end) {
-        int pivot = (int) (Math.random() * (end - start + 1) + start);
-        swap(arr, pivot, end);
-        int smallIndex = start - 1;
-        for (int i = start; i <= end; i++) {
-            if (arr[i] <= arr[end]) {
-                smallIndex++;
-                if (i > smallIndex) {
-                    swap(arr, i, smallIndex);
-                }
+        int pivot = arr[start];
+        int i = start;
+        int j = end;
+        while (i < j) {
+            while (i < j && arr[j] >= pivot) {
+                j--;
+            }
+            if (arr[j] < pivot) {
+                arr[i] = arr[j];
+                i++;
+            }
+            while (i < j && arr[i] <= pivot) {
+                i++;
+            }
+            if (arr[i] > pivot) {
+                arr[j] = arr[i];
+                j--;
             }
         }
-        return smallIndex;
-    }
-
-    private static void swap(int[] arr, int i, int j) {
-        int swap = arr[i];
-        arr[i] = arr[j];
-        arr[j] = swap;
+        arr[i] = pivot;
+        return i;
     }
 
 }
