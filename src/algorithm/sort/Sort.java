@@ -79,7 +79,7 @@ public class Sort {
 
     /**
      * @Description: 希尔排序   O(n log n)   O(1)    不稳定
-     * 希尔排序是把记录按下表的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，
+     * 希尔排序是把记录按一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，
      * 当增量减至1时，整个文件恰被分成一组，算法便终止。
      */
     public static void shellSort(int[] arr) {
@@ -88,7 +88,7 @@ public class Sort {
         int N = 3;
         // 计算递增序列初始值
         while (h < len / N) {
-            h = 3 * h + 1;
+            h = N * h + 1;
         }
         while (h >= 1) {
             // 将数组变为h有序
@@ -100,7 +100,7 @@ public class Sort {
                     arr[j - h] = swap;
                 }
             }
-            h = h / 3;
+            h = h / N;
         }
     }
 
