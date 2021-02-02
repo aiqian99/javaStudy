@@ -4,7 +4,7 @@ package intermediate.thread.producerconsumer;
  * @Description 消费者
  * @Author snail
  */
-public class Consumer implements Runnable{
+public class Consumer implements Runnable {
 
     private Article article;
 

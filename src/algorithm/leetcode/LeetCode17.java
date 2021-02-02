@@ -18,7 +18,7 @@ public class LeetCode17 {
         if (len == 0) {
             return ans;
         }
-        HashMap<Character, String> map = new HashMap<Character, String>(){{
+        HashMap<Character, String> map = new HashMap<Character, String>() {{
             put('2', "abc");
             put('3', "def");
             put('4', "ghi");
@@ -31,7 +31,7 @@ public class LeetCode17 {
         for (int i = 0; i < len; i++) {
             String str = map.get(digits.charAt(i));
             for (int j = 0; j < str.length(); j++) {
-                
+
             }
         }
         return ans;

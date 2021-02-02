@@ -1,13 +1,7 @@
-项目知识点
->src   
-
->>advanced -- Java高级知识
->>>reflection -- 反射    
-
->>algorithm -- 算法
->>>sort -- 常见排序
-
->>intermediate -- Java中级知识
->>>thread -- 线程
-
->>pattern -- 23种设计模式 
+路径目录  
+* src  
+    * design_patterns -- 设计模式  
+        * behavioral -- 行为模式  
+        * creational -- 创建型模式  
+            * factory_method -- 工厂方法模式       
+        * structural -- 结构型模式

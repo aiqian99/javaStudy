@@ -7,7 +7,9 @@ package intermediate.thread.method1;
  */
 public class MyThread extends Thread {
 
-    /** 线程名称 */
+    /**
+     * 线程名称
+     */
     private String name;
 
     public MyThread(String name) {
@@ -15,7 +17,7 @@ public class MyThread extends Thread {
     }
 
     @Override
-    public void run(){
+    public void run() {
         for (int i = 0; i < 10; i++) {
             System.out.println(this.name + " 开启了：" + i);
         }

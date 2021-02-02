@@ -16,7 +16,7 @@ public class Article {
     private final Object lock = new Object();
 
     public Article() {
-        this(false,5);
+        this(false, 5);
     }
 
     public Boolean getFlag() {
