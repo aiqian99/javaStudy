@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author snial
+ * @author snail
  * @date 2021/2/7
  */
 public class PrototypeDemo {

@@ -7,4 +7,5 @@
             * builder -- 生成器模式  
             * factory_method -- 工厂方法模式
             * prototype -- 原型模式
+            * singleton -- 单例模式
         * structural -- 结构型模式
