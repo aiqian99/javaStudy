@@ -1,4 +1,4 @@
-package design_patterns.creational.abstract_factory;
+package design_patterns.creational.abstract_factory.checkboxes;
 
 /**
  * 第二个产品

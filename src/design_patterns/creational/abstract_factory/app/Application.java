@@ -1,4 +1,8 @@
-package design_patterns.creational.abstract_factory;
+package design_patterns.creational.abstract_factory.app;
+
+import design_patterns.creational.abstract_factory.buttons.Button;
+import design_patterns.creational.abstract_factory.checkboxes.CheckBox;
+import design_patterns.creational.abstract_factory.factories.GuiFactory;
 
 /**
  * 客户端

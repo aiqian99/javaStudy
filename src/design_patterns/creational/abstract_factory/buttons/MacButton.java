@@ -1,4 +1,6 @@
-package design_patterns.creational.abstract_factory;
+package design_patterns.creational.abstract_factory.buttons;
+
+import design_patterns.creational.abstract_factory.buttons.Button;
 
 /**
  * 具体产品
