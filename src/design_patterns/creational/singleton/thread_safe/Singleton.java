@@ -16,8 +16,9 @@ public class Singleton {
     }
 
     public static Singleton getInstance(String value) {
-        if (instance != null) {
-            return instance;
+        Singleton result = instance;
+        if (result != null) {
+            return result;
         }
         synchronized (Singleton.class) {
             if (instance == null) {
