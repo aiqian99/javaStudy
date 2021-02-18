@@ -1,4 +1,6 @@
-package design_patterns.creational.factory_method;
+package design_patterns.creational.factory_method.buttons;
+
+import design_patterns.creational.factory_method.factory.Dialog;
 
 /**
  * 具体创建者

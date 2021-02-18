@@ -1,4 +1,4 @@
-package design_patterns.creational.factory_method;
+package design_patterns.creational.factory_method.buttons;
 
 /**
  * 通用产品接口

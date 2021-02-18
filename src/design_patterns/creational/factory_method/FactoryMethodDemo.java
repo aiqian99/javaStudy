@@ -1,5 +1,9 @@
 package design_patterns.creational.factory_method;
 
+import design_patterns.creational.factory_method.buttons.HtmlDialog;
+import design_patterns.creational.factory_method.factory.Dialog;
+import design_patterns.creational.factory_method.factory.WindowsDialog;
+
 /**
  * @author snail
  * @date 2021/2/2
