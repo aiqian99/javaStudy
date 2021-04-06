@@ -1,5 +1,6 @@
 路径目录  
 * src  
+    * basis -- Java基础知识
     * design_patterns -- 设计模式  
         * behavioral -- 行为模式  
         * creational -- 创建型模式  
@@ -9,3 +10,4 @@
             * prototype -- 原型模式
             * singleton -- 单例模式
         * structural -- 结构型模式
+            * adapter -- 适配器模式
