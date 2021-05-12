@@ -5,7 +5,6 @@ import java.util.Random;
 
 /**
  * @Description 排序算法
- * @Author snail
  */
 public class Sort {
 
@@ -66,7 +65,7 @@ public class Sort {
      */
     public static void bubbleSort(int[] arr) {
         int len = arr.length;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < len - 1; i++) {
             for (int j = 0; j < len - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     int swap = arr[j];
