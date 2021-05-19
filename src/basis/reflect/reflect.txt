@@ -1,0 +1,2 @@
+className=basis.reflect.Person
+methodName=study

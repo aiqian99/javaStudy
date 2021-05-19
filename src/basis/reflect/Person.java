@@ -64,6 +64,10 @@ public class Person {
         this.sex = sex;
     }
 
+    public void study() {
+        System.out.println("学习");
+    }
+
     @Override
     public String toString() {
         return "Person{" +
